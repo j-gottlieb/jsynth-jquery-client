@@ -1,5 +1,6 @@
 'use strict'
 const synth = require('./synth.js')
+const frequencies = require('./frequencies')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -7,5 +8,6 @@ const synth = require('./synth.js')
 // require('./example')
 
 $(() => {
-  $('#synth').on('click', synth.toggleSynth)
+  $('body').keydown(synth.synthCall)
+  $('body').keyup(synth.synthCall)
 })

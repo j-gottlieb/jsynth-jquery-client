@@ -1,20 +1,42 @@
+const frequencies = require('./frequencies')
 
 const audioContext = new AudioContext()
 const oscillator = audioContext.createOscillator()
 oscillator.start()
-let playing = false
+const findPitch = (key) => {
+  frequencies.default.map(note => {
+    if (note.keyboard === key) {
+      return note.pitch
+    }
+  })
+}
 
-const toggleSynth = function (event) {
-  console.log('synth clicked')
-  if (!playing) {
+class Synth {
+  constructor (key) {
+    this.key = key
+    this.pitch = findPitch(key)
+  }
+
+  synthOn () {
+    console.log(findPitch(this.key))
+    oscillator.frequency.value = this.pitch
     oscillator.connect(audioContext.destination)
-    playing = true
-  } else {
+  }
+
+  synthOff () {
     oscillator.disconnect()
-    playing = false
+  }
+}
+
+const synthCall = function (event) {
+  const newNote = new Synth(event.key)
+  if (event.type === 'keydown') {
+    newNote.synthOn(event.key)
+  } else {
+    newNote.synthOff()
   }
 }
 
 module.exports = {
-  toggleSynth
+  synthCall
 }
