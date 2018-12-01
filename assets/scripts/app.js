@@ -1,5 +1,5 @@
 'use strict'
-
+const synth = require('./synth.js')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -7,5 +7,5 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  $('#synth').on('click', synth.toggleSynth)
 })
