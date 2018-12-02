@@ -12,7 +12,93 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>JSynth</h1>
+      <nav class="navbar row bg-dark main-nav">
+        <h1 class="text-white">JSynth</h1>
+
+        <div id='display-message'></div>
+
+        <div class="signed-in hidden">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+            Change Password
+          </button>
+          <button type="button" class="btn btn-primary">
+            Sign Out
+          </button>
+        </div>
+
+        <div class="signed-out text-white">
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+            Sign Up
+          </button>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+            Sign In
+          </button>
+          </div>
+
+    </nav>
+
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up-form">
+              <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
+               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+               <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+               <input type="submit"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-in-form">
+               <input required type="email" name="credentials[email]" placeholder="Enter Email" />
+               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+               <input type="submit" />
+             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div id='synth' class="synth-container">
       </div>
     </body>
