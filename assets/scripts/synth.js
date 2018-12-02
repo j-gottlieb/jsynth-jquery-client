@@ -33,9 +33,9 @@ const synthCall = function (event) {
       synth[note.keyboard] = new Synth(note.keyboard, note.pitch)
     }
   })
-  if (event.type === 'keydown') {
+  if (event.type === 'keydown' && synth[key]) {
     synth[key].synthOn()
-  } else {
+  } else if (synth[key]) {
     synth[key].synthOff()
     synth[key] = null
   }

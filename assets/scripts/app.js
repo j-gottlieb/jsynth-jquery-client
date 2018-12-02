@@ -1,6 +1,5 @@
 'use strict'
 const synth = require('./synth.js')
-const frequencies = require('./frequencies')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
