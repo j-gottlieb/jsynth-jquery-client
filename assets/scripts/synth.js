@@ -1,6 +1,6 @@
 const frequencies = require('./frequencies')
 
-const synth = {}
+const synthKeys = {}
 
 class Synth {
   constructor (key, pitch) {
@@ -29,15 +29,15 @@ class Synth {
 const synthCall = function (event) {
   const key = event.key
   frequencies.default.map(note => {
-    if (note.keyboard === key && !synth[key]) {
-      synth[note.keyboard] = new Synth(note.keyboard, note.pitch)
+    if (note.keyboard === key && !synthKeys[key]) {
+      synthKeys[note.keyboard] = new Synth(note.keyboard, note.pitch)
     }
   })
-  if (event.type === 'keydown' && synth[key]) {
-    synth[key].synthOn()
-  } else if (synth[key]) {
-    synth[key].synthOff()
-    synth[key] = null
+  if (event.type === 'keydown' && synthKeys[key]) {
+    synthKeys[key].synthOn()
+  } else if (synthKeys[key]) {
+    synthKeys[key].synthOff()
+    synthKeys[key] = null
   }
 }
 
