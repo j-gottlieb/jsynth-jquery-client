@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const effects = require('../Effects/events')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -15,6 +16,7 @@ const onSignIn = function (event) {
   const credentials = getFormFields(event.target)
   api.signIn(credentials)
     .then(ui.signInSuccess)
+    .then(effects.onGetSettings)
     .catch(ui.signInFailure)
 }
 
