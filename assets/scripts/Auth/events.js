@@ -15,10 +15,27 @@ const onSignIn = function (event) {
   const credentials = getFormFields(event.target)
   api.signIn(credentials)
     .then(ui.signInSuccess)
-    .then(ui.signInFailure)
+    .catch(ui.signInFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const credentials = getFormFields(event.target)
+  api.changePassword(credentials)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword,
+  onSignOut
 }

@@ -8,8 +8,12 @@ const authEvents = require('./Auth/events')
 // require('./example')
 
 $(() => {
+  // synth keyboard listeners
   $('body').keydown(synth.synthCall)
   $('body').keyup(synth.synthCall)
+  // Auth events
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#sign-out-button').on('click', authEvents.onSignOut)
 })

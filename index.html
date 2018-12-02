@@ -21,7 +21,7 @@
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
             Change Password
           </button>
-          <button type="button" class="btn btn-primary">
+          <button id='sign-out-button' type="button" class="btn btn-primary">
             Sign Out
           </button>
         </div>
@@ -90,6 +90,11 @@
             </button>
           </div>
           <div class="modal-body">
+            <form id='change-password-form'>
+              <input required type="password" name="passwords[old]" placeholder="Enter Old Password" />
+              <input required type="password" name="passwords[new]" placeholder="Enter New Password" />
+              <input  type="submit" />
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
