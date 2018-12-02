@@ -5,7 +5,7 @@ const store = require('../store.js')
 
 const onChorusChange = function (event) {
   const chorusRate = event.target.value
-  store.chorusRate = chorusRate
+  store.current_setting.chorusrate = chorusRate
 }
 
 const onSaveSetting = function (event) {
