@@ -8,16 +8,21 @@ class Synth {
     this.pitch = pitch
     this.audioContext = new AudioContext()
     this.oscillator = this.audioContext.createOscillator()
+    this.gain = this.audioContext.createGain()
+    this.gain.gain.value = 0.0
     this.oscillator.start()
   }
 
   synthOn () {
+    this.gain.gain.setTargetAtTime(0.8, this.audioContext.currentTime, 0.02)
     this.oscillator.frequency.value = this.pitch
-    this.oscillator.connect(this.audioContext.destination)
+    this.oscillator.connect(this.gain)
+    this.gain.connect(this.audioContext.destination)
   }
 
   synthOff () {
-    this.oscillator.disconnect()
+    this.gain.gain.setTargetAtTime(0.00001, this.audioContext.currentTime, 0.05)
+    // this.oscillator.disconnect()
   }
 }
 
