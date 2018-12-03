@@ -10,6 +10,6 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#chorus-range').on('change', effectsEvents.onChorusChange)
   $('#filter-cutoff').on('change', effectsEvents.onFilterChange)
-  $('#save-settings').on('click', effectsEvents.onSaveSetting)
+  $('#save-settings').on('submit', effectsEvents.onSaveSetting)
   $('#get-settings').on('click', effectsEvents.onGetSettings)
 })

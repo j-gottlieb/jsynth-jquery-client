@@ -1,4 +1,4 @@
-// const getFormFields = require('../../../lib/get-form-fields')
+const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
@@ -14,10 +14,13 @@ const onFilterChange = function (event) {
 }
 
 const onSaveSetting = function (event) {
+  store.current_setting.name = getFormFields(event.target).name
+  console.log(store.current_setting)
   event.preventDefault()
   const settings = store.current_setting
   api.saveSetting(settings)
     .then(ui.saveSettingSuccess)
+    .then(() => onGetSettings())
 }
 
 const onGetSettings = function (event) {

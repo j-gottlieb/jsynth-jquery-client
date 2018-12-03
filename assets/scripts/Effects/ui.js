@@ -5,6 +5,7 @@ const saveSettingSuccess = function (response) {
 }
 
 const getSettingsSuccess = function (response) {
+  store.settings = null
   store.settings = response.synth_settings
 }
 
