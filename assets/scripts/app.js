@@ -14,4 +14,5 @@ $(() => {
   $('#update-settings').on('submit', effectsEvents.onUpdateSetting)
   $('#get-settings').on('click', effectsEvents.onGetSettings)
   $('#effects-select').on('change', effectsEvents.onSelectSetting)
+  $('#delete').on('click', effectsEvents.onDeleteSetting)
 })

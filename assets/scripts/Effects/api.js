@@ -37,8 +37,19 @@ const updateSetting = function (settings) {
   })
 }
 
+const deleteSetting = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/synth_settings/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   saveSetting,
   getSettings,
-  updateSetting
+  updateSetting,
+  deleteSetting
 }

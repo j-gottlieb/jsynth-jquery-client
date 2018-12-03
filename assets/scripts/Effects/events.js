@@ -63,11 +63,21 @@ const onSelectSetting = function (event) {
   }
 }
 
+const onDeleteSetting = function (event) {
+  const id = store.current_setting.id
+  console.log(id)
+  api.deleteSetting(id)
+    .then(ui.deleteSettingSuccess)
+    .then(onGetSettings())
+    .catch()
+}
+
 module.exports = {
   onChorusChange,
   onFilterChange,
   onSaveSetting,
   onGetSettings,
   onSelectSetting,
-  onUpdateSetting
+  onUpdateSetting,
+  onDeleteSetting
 }
