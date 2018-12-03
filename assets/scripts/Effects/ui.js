@@ -6,7 +6,6 @@ const saveSettingSuccess = function (response) {
 
 const getSettingsSuccess = function (response) {
   store.settings = response.synth_settings
-  console.log(store.settings)
 }
 
 module.exports = {

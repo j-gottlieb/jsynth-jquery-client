@@ -1,13 +1,15 @@
 import Tuna from 'tunajs'
 const frequencies = require('./frequencies')
+const store = require('./store')
 
 const synthKeys = {}
+const audioContext = new AudioContext()
 
 class Synth {
   constructor (key, pitch) {
     this.key = key
     this.pitch = pitch
-    this.audioContext = new AudioContext()
+    this.audioContext = audioContext
     this.oscillator = this.audioContext.createOscillator()
     this.gain = this.audioContext.createGain()
     this.oscillator.frequency.value = this.pitch
@@ -16,7 +18,7 @@ class Synth {
     this.tuna = new Tuna(this.audioContext)
     this.oscillator.start()
     this.filter = new this.tuna.Filter({
-      frequency: 440, // 20 to 22050
+      frequency: 4, // 20 to 22050
       Q: 1, // 0.001 to 100
       gain: 0, // -40 to 40 (in decibels)
       filterType: 'lowpass', // lowpass, highpass, bandpass, lowshelf, highshelf, peaking, notch, allpass
@@ -35,13 +37,14 @@ class Synth {
   }
 
   synthOn () {
+    this.filter.frequency = store.current_setting.filtercutoff
+    this.chorus.rate = store.current_setting.chorusrate
     this.gain.gain.setTargetAtTime(0.8, this.audioContext.currentTime, 0.02)
     this.gain.connect(this.audioContext.destination)
   }
 
   synthOff () {
     this.gain.gain.setTargetAtTime(0.00001, this.audioContext.currentTime, 0.05)
-    // this.oscillator.disconnect()
   }
 }
 

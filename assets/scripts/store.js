@@ -3,9 +3,9 @@
 const store = {
   current_setting: {
     name: 'test',
-    chorusrate: 0.5,
+    chorusrate: 4,
     chorustoggle: true,
-    filtercutoff: 0.5,
+    filtercutoff: 1000,
     filtertoggle: true
   }
 }

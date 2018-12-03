@@ -38,6 +38,8 @@
           </div>
 
     </nav>
+    <div class="container">
+      <button id='mute-button'>Unmute</button>
 
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -110,12 +112,23 @@
       <div class="signed-in">
         <form class="range-field my-4 w-25">
           <label for='chorus-range'>Chorus</label>
-          <input id='chorus-range' type="range" min="0" max="1" step=".01" />
+          <input id='chorus-range' type="range" min="0" max="8" step=".1" />
         </form>
       </div>
+
+      <div class="signed-in">
+        <form class="range-field my-4 w-25">
+          <label for='filter-cutoff'>Filter Cut-Off</label>
+          <input id='filter-cutoff' type="range" min="200" max="15000" step="1" />
+        </form>
+      </div>
+
+      <select id='effects-select'></select>
+
       <div class="save-settings">
         <button id='save-settings'>Save Setting</button>
         <p id=settings-message></p>
       </div>
+    </div>
     </body>
 </html>

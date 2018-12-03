@@ -2,6 +2,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const effects = require('../Effects/events')
+const effectsSelect = require('../Effects/effectsSelect')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -17,6 +18,7 @@ const onSignIn = function (event) {
   api.signIn(credentials)
     .then(ui.signInSuccess)
     .then(effects.onGetSettings)
+    .then(effectsSelect.populateSelect)
     .catch(ui.signInFailure)
 }
 

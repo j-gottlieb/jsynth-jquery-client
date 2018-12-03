@@ -1,4 +1,6 @@
 const store = require('../store.js')
+const synth = require('../synth.js')
+// const effectsSelect = require('../Effects/effectsSelect')
 
 const signUpSuccess = function () {
   $('#display-message').hide()
@@ -28,6 +30,8 @@ const signInSuccess = function (response) {
   $('#display-message').text(`Welcome, ${store.user.email}.`).fadeToggle().delay(2000).fadeToggle()
   $('.signed-in').show()
   $('.signed-out').hide()
+  $('body').keydown(synth.synthCall)
+  $('body').keyup(synth.synthCall)
 }
 
 const signInFailure = function () {
