@@ -2,6 +2,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const effectsSelect = require('../Effects/effectsSelect')
 
 const onChorusChange = function (event) {
   const chorusRate = event.target.value
@@ -22,6 +23,7 @@ const onSaveSetting = function (event) {
 const onGetSettings = function (event) {
   api.getSettings()
     .then(ui.getSettingsSuccess)
+    .then(effectsSelect.populateSelect)
     .catch(ui.getSettingsFailure)
 }
 

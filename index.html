@@ -39,7 +39,11 @@
 
     </nav>
     <div class="container">
-      <button id='mute-button'>Unmute</button>
+
+      <div class="welcome signed-out">
+        <h1>Welcome to JSynth</h1>
+        <h3>Sign in to jam</h3>
+      </div>
 
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -106,9 +110,38 @@
       </div>
     </div>
 
-      <div id='synth' class="synth-container">
+    <div class="synth-container signed-in hidden">
+
+      <div class="natural">
+      </div>
+        <div class="sharp">
+        </div>
+      <div class="natural">
+      </div>
+        <div class="sharp">
+        </div>
+      <div class="natural">
+      </div>
+      <div class="natural">
+        <div class="sharp">
+        </div>
+      </div>
+      <div class="natural">
+      </div>
+        <div class="sharp">
+        </div>
+      <div class="natural">
+      </div>
+        <div class="sharp">
+        </div>
+      <div class="natural">
+      </div>
+      <div class="natural">
       </div>
 
+    </div>
+
+    <div class="settings signed-in hidden">
       <div class="signed-in">
         <form class="range-field my-4 w-25">
           <label for='chorus-range'>Chorus</label>
@@ -116,19 +149,19 @@
         </form>
       </div>
 
-      <div class="signed-in">
         <form class="range-field my-4 w-25">
           <label for='filter-cutoff'>Filter Cut-Off</label>
           <input id='filter-cutoff' type="range" min="200" max="15000" step="1" />
         </form>
+
+        <select id='effects-select'></select>
+
+        <div class="save-settings">
+          <button id='save-settings'>Save Setting</button>
+          <p id=settings-message></p>
+        </div>
       </div>
 
-      <select id='effects-select'></select>
-
-      <div class="save-settings">
-        <button id='save-settings'>Save Setting</button>
-        <p id=settings-message></p>
-      </div>
     </div>
     </body>
 </html>

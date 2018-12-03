@@ -18,7 +18,6 @@ const onSignIn = function (event) {
   api.signIn(credentials)
     .then(ui.signInSuccess)
     .then(effects.onGetSettings)
-    .then(effectsSelect.populateSelect)
     .catch(ui.signInFailure)
 }
 
