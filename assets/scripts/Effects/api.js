@@ -24,7 +24,21 @@ const getSettings = function () {
   })
 }
 
+const updateSetting = function (settings) {
+  return $.ajax({
+    url: config.apiUrl + '/synth_settings/' + settings.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      'synth_setting': settings
+    }
+  })
+}
+
 module.exports = {
   saveSetting,
-  getSettings
+  getSettings,
+  updateSetting
 }

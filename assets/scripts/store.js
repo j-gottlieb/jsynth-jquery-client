@@ -2,6 +2,7 @@
 
 const store = {
   current_setting: {
+    id: null,
     name: 'test',
     chorusrate: 4,
     chorustoggle: true,
