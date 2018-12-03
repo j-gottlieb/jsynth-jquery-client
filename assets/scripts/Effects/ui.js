@@ -10,7 +10,7 @@ const getSettingsSuccess = function (response) {
 }
 
 const updateSettingSuccess = function (response) {
-  console.log(response)
+  $('#settings-message').text('Setting has been updated').fadeToggle().delay(2000).fadeToggle()
 }
 
 module.exports = {

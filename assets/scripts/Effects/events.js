@@ -28,6 +28,23 @@ const onSaveSetting = function (event) {
   }
 }
 
+const onUpdateSetting = function (event) {
+  event.preventDefault()
+  if (getFormFields(event.target).name !== '') {
+    store.current_setting.name = getFormFields(event.target).name
+  }
+  const settings = store.current_setting
+  if (store.current_setting.id) {
+    api.updateSetting(settings)
+      .then(ui.updateSettingSuccess)
+      .then(onGetSettings())
+      .catch()
+  } else {
+    $('#settings-message').hide()
+    $('#settings-message').text('Please select a setting to update').fadeToggle().delay(2000).fadeToggle()
+  }
+}
+
 const onGetSettings = function (event) {
   api.getSettings()
     .then(ui.getSettingsSuccess)
@@ -50,5 +67,6 @@ module.exports = {
   onFilterChange,
   onSaveSetting,
   onGetSettings,
-  onSelectSetting
+  onSelectSetting,
+  onUpdateSetting
 }
