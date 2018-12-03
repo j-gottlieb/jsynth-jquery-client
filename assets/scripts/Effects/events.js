@@ -57,6 +57,7 @@ const onSelectSetting = function (event) {
   for (let i = 0; i < settings.length; i++) {
     if (settings[i].name === this.value) {
       store.current_setting = settings[i]
+      $('#update-settings [name=name]').val(settings[i].name)
       return
     }
   }
