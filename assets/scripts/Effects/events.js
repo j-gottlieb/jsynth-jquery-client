@@ -30,9 +30,20 @@ const onGetSettings = function (event) {
     .catch(ui.getSettingsFailure)
 }
 
+const onSelectSetting = function (event) {
+  const settings = store.settings
+  for (let i = 0; i < settings.length; i++) {
+    if (settings[i].name === this.value) {
+      store.current_setting = settings[i]
+    }
+  }
+  console.log(store.current_setting)
+}
+
 module.exports = {
   onChorusChange,
   onFilterChange,
   onSaveSetting,
-  onGetSettings
+  onGetSettings,
+  onSelectSetting
 }

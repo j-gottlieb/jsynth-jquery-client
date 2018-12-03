@@ -12,4 +12,5 @@ $(() => {
   $('#filter-cutoff').on('change', effectsEvents.onFilterChange)
   $('#save-settings').on('submit', effectsEvents.onSaveSetting)
   $('#get-settings').on('click', effectsEvents.onGetSettings)
+  $('#effects-select').on('change', effectsEvents.onSelectSetting)
 })
