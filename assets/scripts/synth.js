@@ -37,6 +37,7 @@ class Synth {
   }
 
   synthOn () {
+    $(`#${this.key}`).addClass(`${this.key}`)
     this.filter.frequency = store.current_setting.filtercutoff
     this.chorus.rate = store.current_setting.chorusrate
     this.gain.gain.setTargetAtTime(0.8, this.audioContext.currentTime, 0.02)
@@ -44,6 +45,7 @@ class Synth {
   }
 
   synthOff () {
+    $(`#${this.key}`).removeClass(`${this.key}`)
     this.gain.gain.setTargetAtTime(0.00001, this.audioContext.currentTime, 0.05)
   }
 }
