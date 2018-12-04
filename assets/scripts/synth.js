@@ -3,7 +3,7 @@ const frequencies = require('./frequencies')
 const store = require('./store')
 
 const synthKeys = {}
-const audioContext = new AudioContext()
+
 const octavizer = function (pitch) {
   let newPitch = pitch
   switch (store.octave) {
@@ -26,13 +26,13 @@ class Synth {
   constructor (key, pitch) {
     this.key = key
     this.pitch = pitch
-    this.audioContext = audioContext
-    this.oscillator = this.audioContext.createOscillator()
-    this.gain = this.audioContext.createGain()
+    // this.store.audioContext = store.audioContext
+    this.oscillator = store.audioContext.createOscillator()
+    this.gain = store.audioContext.createGain()
     this.oscillator.frequency.value = this.pitch
     this.oscillator.type = 'square'
     this.gain.gain.value = 0.0
-    this.tuna = new Tuna(this.audioContext)
+    this.tuna = new Tuna(store.audioContext)
     this.oscillator.start()
     this.filter = new this.tuna.Filter({
       frequency: 4, // 20 to 22050
@@ -57,13 +57,13 @@ class Synth {
     $(`#${this.key}`).addClass(`${this.key}`)
     this.filter.frequency = store.current_setting.filtercutoff
     this.chorus.rate = store.current_setting.chorusrate
-    this.gain.gain.setTargetAtTime(0.8, this.audioContext.currentTime, 0.02)
-    this.gain.connect(this.audioContext.destination)
+    this.gain.gain.setTargetAtTime(0.8, store.audioContext.currentTime, 0.02)
+    this.gain.connect(store.audioContext.destination)
   }
 
   synthOff () {
     $(`#${this.key}`).removeClass(`${this.key}`)
-    this.gain.gain.setTargetAtTime(0.00001, this.audioContext.currentTime, 0.05)
+    this.gain.gain.setTargetAtTime(0.00001, store.audioContext.currentTime, 0.05)
   }
 }
 

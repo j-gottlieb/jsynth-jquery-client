@@ -22,6 +22,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   store.user = response.user
+  store.audioContext = new AudioContext()
   $('#display-message').hide()
   $('#sign-in-form').trigger('reset')
   $('#signInModal').modal('toggle')
