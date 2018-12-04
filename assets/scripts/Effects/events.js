@@ -21,12 +21,11 @@ const onSaveSetting = function (event) {
   api.saveSetting(settings)
     .then(ui.saveSettingSuccess)
     .then(() => onGetSettings())
-    .then(saveSettingPopulateSelect(currentName))
+    .then(() => saveSettingPopulateSelect(currentName))
 }
 
 const saveSettingPopulateSelect = function (name) {
-  // console.log(name, store.settings)
-  // $('#effects-select').find(`option[value=${response.synth_setting.name}]`).attr('selected', true)
+  $('#effects-select').find(`option[value=${name}]`).attr('selected', true)
 }
 
 const onUpdateSetting = function (event) {
