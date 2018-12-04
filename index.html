@@ -173,25 +173,26 @@
       </div>
     </div>
 
-    <div class="signed-in hidden row justify-content-between">
+    <div class="row justify-content-around">
 
-      <div class="sliders col-5">
-
+      <div class="col-5">
+        <div class="sliders signed-in hidden">
           <form class="range-field my-4 w-25">
             <label for='chorus-range'>Chorus Rate:</label>
             <input id='chorus-range' class="slider" type="range" min="0" max="8" step=".1" value='4' />
           </form>
 
-        <form class="range-field my-4 w-25">
-          <label for='filter-cutoff'>Filter Cut-Off:</label>
-          <input id='filter-cutoff' class="slider" type="range" min="200" max="15000" step="1" value='1000' />
-        </form>
-
+          <form class="range-field my-4 w-25">
+            <label for='filter-cutoff'>Filter Cut-Off:</label>
+            <input id='filter-cutoff' class="slider" type="range" min="200" max="15000" step="1" value='1000' />
+          </form>
+        </div>
       </div>
 
-      <div class="settings col-5">
-        <h5>Choose a Setting</h5>
-        <select class="effects-select" id='effects-select'></select>
+      <div class="col-5">
+        <div class="settings signed-in hidden">
+          <h5>Choose a Setting</h5>
+          <select class="effects-select" id='effects-select'></select>
 
           <h5>Update current setting</h5>
           <form id='update-settings'>
@@ -204,13 +205,12 @@
             <input type="text" name="name" placeholder="Setting Name" />
             <input type="submit">
           </form>
-
         <button id="delete" class="btn delete-button btn-warning">Delete Current Setting</button>
       </div>
-
     </div>
-    <p id=settings-message></p>
+    </div>
 
+    <p id=settings-message></p>
 
     </div>
     </body>

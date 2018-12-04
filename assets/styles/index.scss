@@ -28,8 +28,8 @@ label {
 }
 
 .sliders {
-  display: inline-block;
-  height: 200px;
+  padding: 4px;
+  height: 100%;
   width: 300px;
   background-color: #eff6ff;
   border: 2px solid black;
@@ -41,7 +41,10 @@ label {
 }
 
 .settings {
-  display: inline-block;
+  padding: 4px;
+  height: 250px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .delete-button {
@@ -81,6 +84,7 @@ label {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   align-items: flex-end;
+  box-shadow: 4px 4px 4px black;
 }
 
 .sharp p {
