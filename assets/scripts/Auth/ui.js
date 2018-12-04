@@ -63,9 +63,9 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   store.user = null
-  $('#display-message').hide()
+  $('#display-message, #settings-message').hide()
   $('form').trigger('reset')
-  $('#display-message').text('')
+  $('#display-message, #settings-message').text('')
   $('#display-message').css('color', 'green')
   $('#display-message').text('You have signed out.').fadeToggle().delay(2000).fadeToggle()
   $('.signed-in').hide()
