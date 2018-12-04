@@ -58,6 +58,8 @@ const onSelectSetting = function (event) {
   for (let i = 0; i < settings.length; i++) {
     if (settings[i].name === this.value) {
       store.current_setting = settings[i]
+      $('#filter-cutoff').val(settings[i].filtercutoff)
+      $('#chorus-range').val(settings[i].chorusrate)
       $('#update-settings [name=name]').val(settings[i].name)
       return
     }
