@@ -1,6 +1,7 @@
 const store = require('../store.js')
 
 const saveSettingSuccess = function (response) {
+  $('#save-settings').trigger('reset')
   $('#settings-message').hide()
   $('#settings-message').css('color', 'green')
   $('#settings-message').text('Setting Saved').fadeToggle().delay(2000).fadeToggle()
@@ -18,6 +19,7 @@ const updateSettingSuccess = function (response) {
 }
 
 const deleteSettingSuccess = function (response) {
+  $('#update-settings').trigger('reset')
   $('#settings-message').hide()
   $('#settings-message').css('color', 'red')
   $('#settings-message').text('Setting has been deleted').fadeToggle().delay(2000).fadeToggle()

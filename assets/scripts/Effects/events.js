@@ -4,6 +4,8 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 const effectsSelect = require('../Effects/effectsSelect')
 
+let currentSetting
+
 const onChorusChange = function (event) {
   const chorusRate = event.target.value
   store.current_setting.chorusrate = chorusRate
@@ -14,18 +16,19 @@ const onFilterChange = function (event) {
 }
 
 const onSaveSetting = function (event) {
-  store.current_setting.name = getFormFields(event.target).name
+  const currentName = getFormFields(event.target).name
+  store.current_setting.name = currentName
   event.preventDefault()
   const settings = store.current_setting
-  // if (store.current_setting.id) {
-  //   api.updateSetting(settings)
-  //     .then(ui.updateSettingSuccess)
-  //     .catch()
-  // } else {
   api.saveSetting(settings)
     .then(ui.saveSettingSuccess)
     .then(() => onGetSettings())
-  // }
+    .then(saveSettingPopulateSelect(currentName))
+}
+
+const saveSettingPopulateSelect = function (name) {
+  console.log(name, store.settings)
+  // $('#effects-select').find(`option[value=${response.synth_setting.name}]`).attr('selected', true)
 }
 
 const onUpdateSetting = function (event) {
@@ -46,7 +49,7 @@ const onUpdateSetting = function (event) {
 }
 
 const onGetSettings = function (event) {
-  api.getSettings()
+  return api.getSettings()
     .then(ui.getSettingsSuccess)
     .then(effectsSelect.populateSelect)
     .catch(ui.getSettingsFailure)
