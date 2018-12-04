@@ -17,15 +17,15 @@ const onSaveSetting = function (event) {
   store.current_setting.name = getFormFields(event.target).name
   event.preventDefault()
   const settings = store.current_setting
-  if (store.current_setting.id) {
-    api.updateSetting(settings)
-      .then(ui.updateSettingSuccess)
-      .catch()
-  } else {
-    api.saveSetting(settings)
-      .then(ui.saveSettingSuccess)
-      .then(() => onGetSettings())
-  }
+  // if (store.current_setting.id) {
+  //   api.updateSetting(settings)
+  //     .then(ui.updateSettingSuccess)
+  //     .catch()
+  // } else {
+  api.saveSetting(settings)
+    .then(ui.saveSettingSuccess)
+    .then(() => onGetSettings())
+  // }
 }
 
 const onUpdateSetting = function (event) {

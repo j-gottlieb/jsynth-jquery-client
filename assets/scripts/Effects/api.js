@@ -9,7 +9,13 @@ const saveSetting = function (settings) {
       Authorization: `Token token=${store.user.token}`
     },
     data: {
-      'synth_setting': settings
+      'synth_setting': {
+        'name': settings.name,
+        'chorusrate': settings.chorusrate,
+        'chorustoggle': settings.chorustoggle,
+        'filtercutoff': settings.filtercutoff,
+        'filtertoggle': settings.filtertoggle
+      }
     }
   })
 }
