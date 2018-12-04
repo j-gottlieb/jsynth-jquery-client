@@ -48,6 +48,7 @@ label {
 }
 
 .natural {
+  text-align: center;
   margin-right: -5px;
   position: relative;
   display: inline-block;
@@ -59,7 +60,12 @@ label {
   vertical-align: bottom;
 }
 
+.natural p {
+  margin-top: 120px;
+}
+
 .sharp {
+  text-align: center;
   margin-right: -5px;
   display: flex;
   position: absolute;
@@ -74,6 +80,10 @@ label {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   align-items: flex-end;
+}
+
+.sharp p {
+  margin-top: 80px;
 }
 
 .hidden {
