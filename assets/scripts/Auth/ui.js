@@ -30,8 +30,9 @@ const signInSuccess = function (response) {
   $('#display-message').text(`Welcome, ${store.user.email}.`).fadeToggle().delay(2000).fadeToggle()
   $('.signed-in').show()
   $('.signed-out').hide()
-  $('body').keydown(synth.synthCall)
-  $('body').keyup(synth.synthCall)
+  $('.synth-container').keydown(synth.synthCall)
+  $('.synth-container').keyup(synth.synthCall)
+  $('.synth-container').focusout(synth.synthCall)
 }
 
 const signInFailure = function () {

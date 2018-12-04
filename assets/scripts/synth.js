@@ -86,6 +86,13 @@ const synthCall = function (event) {
   } else if (synthKeys[key]) {
     synthKeys[key].synthOff()
     synthKeys[key] = null
+  } else if (event.type === 'focusout') {
+    for (const key in synthKeys) {
+      if (synthKeys[key]) {
+        synthKeys[key].synthOff()
+        synthKeys[key] = null
+      }
+    }
   }
 }
 
