@@ -8,6 +8,7 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out-button').on('click', authEvents.onSignOut)
+  // Settings events
   $('#chorus-range').on('change', effectsEvents.onChorusChange)
   $('#filter-cutoff').on('change', effectsEvents.onFilterChange)
   $('#save-settings').on('submit', effectsEvents.onSaveSetting)

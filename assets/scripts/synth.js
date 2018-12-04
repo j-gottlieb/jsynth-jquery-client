@@ -4,6 +4,23 @@ const store = require('./store')
 
 const synthKeys = {}
 const audioContext = new AudioContext()
+const octavizer = function (pitch) {
+  let newPitch = pitch
+  switch (store.octave) {
+    case 1:
+      newPitch = pitch * 2
+      break
+    case 2:
+      newPitch = pitch * 4
+      break
+    case -1:
+      newPitch = pitch / 2
+      break
+    case -2:
+      newPitch = pitch / 4
+  }
+  return newPitch
+}
 
 class Synth {
   constructor (key, pitch) {
@@ -52,12 +69,19 @@ class Synth {
 
 const synthCall = function (event) {
   const key = event.key
+  if (event.type === 'keydown' && event.key === ',') {
+    store.octave -= 1
+  } else if (event.type === 'keydown' && event.key === '.') {
+    store.octave += 1
+  }
   frequencies.default.map(note => {
     if (note.keyboard === key && !synthKeys[key]) {
       synthKeys[note.keyboard] = new Synth(note.keyboard, note.pitch)
     }
   })
+  // console.log(octavizer(synthKeys[key].pitch), synthKeys[key].pitch)
   if (event.type === 'keydown' && synthKeys[key]) {
+    synthKeys[key].oscillator.frequency.value = octavizer(synthKeys[key].pitch)
     synthKeys[key].synthOn()
   } else if (synthKeys[key]) {
     synthKeys[key].synthOff()

@@ -8,7 +8,8 @@ const store = {
     chorustoggle: true,
     filtercutoff: 1000,
     filtertoggle: true
-  }
+  },
+  octave: 0
 }
 
 module.exports = store

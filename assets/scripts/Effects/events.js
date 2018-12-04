@@ -4,8 +4,6 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 const effectsSelect = require('../Effects/effectsSelect')
 
-let currentSetting
-
 const onChorusChange = function (event) {
   const chorusRate = event.target.value
   store.current_setting.chorusrate = chorusRate
