@@ -140,18 +140,30 @@
       </div>
 
     </div>
+    <div class="octavizer signed-in hidden">
+      <div class="octave-keys">
+        <p class="octave-display">Hit</p>
+        <img class="keyboard-key" src="./public/images/octave-down.png" alt="octave-down">
+        <p class="octave-display">to lower one octave</p>
+      </div>
+      <div class="octave-keys signed-in hidden">
+        <p class="octave-display">Hit
+        <img class="keyboard-key" src="./public/images/octave-up.png" alt="octave-up">
+        <p class="octave-display">to raise one octave</p>
+      </div>
+    </div>
 
     <div class="settings signed-in hidden">
       <div class="signed-in">
         <form class="range-field my-4 w-25">
-          <label for='chorus-range'>Chorus</label>
-          <input id='chorus-range' type="range" min="0" max="8" step=".1" />
+          <label for='chorus-range'>Chorus Rate:</label>
+          <input id='chorus-range' class="slider" type="range" min="0" max="8" step=".1" />
         </form>
       </div>
 
         <form class="range-field my-4 w-25">
-          <label for='filter-cutoff'>Filter Cut-Off</label>
-          <input id='filter-cutoff' type="range" min="200" max="15000" step="1" />
+          <label for='filter-cutoff'>Filter Cut-Off:</label>
+          <input id='filter-cutoff' class="slider" type="range" min="200" max="15000" step="1" />
         </form>
 
         <select id='effects-select'></select>
