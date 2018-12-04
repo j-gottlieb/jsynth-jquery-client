@@ -1,6 +1,7 @@
 const store = require('../store.js')
 
 const saveSettingSuccess = function (response) {
+  store.current_setting = response.synth_setting
   $('#update-settings [name=name]').val(response.synth_setting.name)
   $('#save-settings').trigger('reset')
   $('#settings-message').hide()
