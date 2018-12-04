@@ -37,7 +37,7 @@ const onUpdateSetting = function (event) {
   if (store.current_setting.id) {
     api.updateSetting(settings)
       .then(ui.updateSettingSuccess)
-      .then(onGetSettings())
+      .then(() => onGetSettings())
       .catch()
   } else {
     $('#settings-message').hide()
@@ -69,7 +69,7 @@ const onDeleteSetting = function (event) {
   const id = store.current_setting.id
   api.deleteSetting(id)
     .then(ui.deleteSettingSuccess)
-    .then(onGetSettings())
+    .then(() => onGetSettings())
     .catch()
 }
 
