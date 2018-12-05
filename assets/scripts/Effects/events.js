@@ -17,6 +17,7 @@ const onFilterChange = function (event) {
 // change current setting when user selects new option
 const onSelectOscillatorType = function (event) {
   const type = this.value
+  console.log(this.value)
   store.current_setting.oscillator_type = type
 }
 
@@ -37,7 +38,13 @@ const onSaveSetting = function (event) {
 
 // dynamically select the newly created effect after user saves new effect
 const saveSettingPopulateSelect = function (name) {
-  $('#effects-select').find(`option[value=${name}]`).attr('selected', true)
+  $('#effects-select').find('option').each(function () {
+    if (this.value !== name) {
+      $(this).removeAttr('selected')
+    } else if (this.value === name) {
+      $(this).attr('selected', 'selected')
+    }
+  })
 }
 // Collect arguments to send via PATCH ajax request to api
 const onUpdateSetting = function (event) {
@@ -79,9 +86,11 @@ const onSelectSetting = function (event) {
       $('#chorus-range').val(settings[i].chorusrate)
       // change oscillator_type dropdown to match selected setting
       $('#oscillator-type').find('option').each(function () {
-        if ($(this).val() !== store.current_setting.name) {
+        if (this.value !== store.current_setting.oscillator_type) {
+          console.log('!' + this)
           $(this).removeAttr('selected')
-        } else if ($(this).val() === store.current_setting.name) {
+        } else if (this.value === store.current_setting.oscillator_type) {
+          console.log(this)
           $(this).attr('selected', 'selected')
         }
       })
