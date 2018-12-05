@@ -75,6 +75,7 @@ const onGetSettings = function (event) {
 
 // User selects a setting
 const onSelectSetting = function (event) {
+  console.log('hello')
   const settings = store.settings
   // Loop through all settings to find the selected one
   for (let i = 0; i < settings.length; i++) {

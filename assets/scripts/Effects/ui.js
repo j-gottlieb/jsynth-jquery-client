@@ -26,7 +26,7 @@ const getSettingsSuccess = function (response) {
   if (store.settings.length === 0) {
     store.current_setting = {
       id: null,
-      name: 'default',
+      name: '',
       oscillator_type: 'sine',
       chorusrate: 4,
       chorustoggle: true,

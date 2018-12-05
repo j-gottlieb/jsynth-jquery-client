@@ -3,7 +3,7 @@
 const store = {
   current_setting: {
     id: null,
-    name: 'test',
+    name: '',
     oscillator_type: 'sine',
     chorusrate: 4,
     chorustoggle: true,

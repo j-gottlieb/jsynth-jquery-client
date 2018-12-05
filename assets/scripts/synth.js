@@ -30,10 +30,10 @@ class Synth {
     this.oscillator = store.audioContext.createOscillator()
     this.gain = store.audioContext.createGain()
     this.oscillator.frequency.value = this.pitch
-    this.oscillator.type = store.current_setting.oscillator_type
+    // this.oscillator.type = store.current_setting.oscillator_type
     this.gain.gain.value = 0.0
     this.tuna = new Tuna(store.audioContext)
-    this.oscillator.start()
+    this.oscillator.start(store.audioContext.currentTime)
     this.filter = new this.tuna.Filter({
       frequency: 4, // 20 to 22050
       Q: 1, // 0.001 to 100
@@ -54,6 +54,8 @@ class Synth {
   }
 
   synthOn () {
+    console.log(this.oscillator.type)
+    this.oscillator.type = store.current_setting.oscillator_type
     $(`#${this.key}`).addClass(`${this.key}`)
     this.filter.frequency = store.current_setting.filtercutoff
     this.chorus.rate = store.current_setting.chorusrate
@@ -62,8 +64,16 @@ class Synth {
   }
 
   synthOff () {
+    const key = this.key
     $(`#${this.key}`).removeClass(`${this.key}`)
     this.gain.gain.setTargetAtTime(0.00001, store.audioContext.currentTime, 0.05)
+    return new Promise((resolve) => {
+      // whenever the node actually finishes playing, disconnect it
+      this.oscillator.onended = function () {
+        synthKeys[key].oscillator.disconnect()
+        resolve()
+      }
+    })
   }
 }
 
@@ -81,17 +91,14 @@ const synthCall = function (event) {
   })
   // console.log(octavizer(synthKeys[key].pitch), synthKeys[key].pitch)
   if (event.type === 'keydown' && synthKeys[key]) {
-    console.log(synthKeys[key])
     synthKeys[key].oscillator.frequency.value = octavizer(synthKeys[key].pitch)
     synthKeys[key].synthOn()
   } else if (synthKeys[key]) {
     synthKeys[key].synthOff()
-    synthKeys[key] = null
   } else if (event.type === 'focusout') {
     for (const key in synthKeys) {
       if (synthKeys[key]) {
         synthKeys[key].synthOff()
-        synthKeys[key] = null
       }
     }
   }
