@@ -73,6 +73,11 @@ const onDeleteSetting = function (event) {
     .catch()
 }
 
+const onSelectOscillatorType = function (event) {
+  const type = this.value
+  store.current_setting.type = type
+}
+
 module.exports = {
   onChorusChange,
   onFilterChange,
@@ -80,5 +85,6 @@ module.exports = {
   onGetSettings,
   onSelectSetting,
   onUpdateSetting,
-  onDeleteSetting
+  onDeleteSetting,
+  onSelectOscillatorType
 }

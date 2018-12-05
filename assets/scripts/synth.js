@@ -30,7 +30,7 @@ class Synth {
     this.oscillator = store.audioContext.createOscillator()
     this.gain = store.audioContext.createGain()
     this.oscillator.frequency.value = this.pitch
-    this.oscillator.type = 'square'
+    this.oscillator.type = store.current_setting.type
     this.gain.gain.value = 0.0
     this.tuna = new Tuna(store.audioContext)
     this.oscillator.start()

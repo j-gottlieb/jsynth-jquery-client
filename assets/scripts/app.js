@@ -16,4 +16,5 @@ $(() => {
   $('#get-settings').on('click', effectsEvents.onGetSettings)
   $('#effects-select').on('change', effectsEvents.onSelectSetting)
   $('#delete').on('click', effectsEvents.onDeleteSetting)
+  $('#oscillator-type').on('change', effectsEvents.onSelectOscillatorType)
 })
