@@ -48,15 +48,18 @@ const saveSettingPopulateSelect = function (name) {
 // Collect arguments to send via PATCH ajax request to api
 const onUpdateSetting = function (event) {
   event.preventDefault()
+  const name = getFormFields(event.target).name
   // If user has entered nothing in the form, use the previous name
   if (getFormFields(event.target).name !== '') {
-    store.current_setting.name = getFormFields(event.target).name
+    store.current_setting.name = name
   }
   const settings = store.current_setting
   if (store.current_setting.id) {
     api.updateSetting(settings)
       .then(ui.updateSettingSuccess)
-      .then(() => onGetSettings())
+      .then(api.getSettings)
+      .then(effectsSelect.populateSelect)
+      .then(() => saveSettingPopulateSelect(name))
       .catch()
   } else {
     // if no setting is selected, display this message
@@ -75,7 +78,6 @@ const onGetSettings = function (event) {
 
 // User selects a setting
 const onSelectSetting = function (event) {
-  console.log($('#effects-select'))
   const settings = store.settings
   // Loop through all settings to find the selected one
   const setting = settings.find(element => element.name === this.value)

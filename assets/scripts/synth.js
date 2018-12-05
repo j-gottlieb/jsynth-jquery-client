@@ -54,7 +54,6 @@ class Synth {
   }
 
   synthOn () {
-    console.log(this.oscillator.type)
     this.oscillator.type = store.current_setting.oscillator_type
     $(`#${this.key}`).addClass(`${this.key}`)
     this.filter.frequency = store.current_setting.filtercutoff
@@ -89,7 +88,6 @@ const synthCall = function (event) {
       synthKeys[note.keyboard] = new Synth(note.keyboard, note.pitch)
     }
   })
-  // console.log(octavizer(synthKeys[key].pitch), synthKeys[key].pitch)
   if (event.type === 'keydown' && synthKeys[key]) {
     synthKeys[key].oscillator.frequency.value = octavizer(synthKeys[key].pitch)
     synthKeys[key].synthOn()
