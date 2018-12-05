@@ -36,6 +36,7 @@ const getSettingsSuccess = function (response) {
   } else {
     store.current_setting = response.synth_settings[0]
   }
+  $('#update-settings [name=name]').val(store.current_setting.name)
   $('#filter-cutoff').val(store.current_setting.filtercutoff)
   $('#chorus-range').val(store.current_setting.chorusrate)
   $('#oscillator-type').find(`option[value=${store.current_setting.oscillator_type}]`).attr('selected', true)

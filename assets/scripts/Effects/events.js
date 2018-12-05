@@ -17,7 +17,6 @@ const onFilterChange = function (event) {
 // change current setting when user selects new option
 const onSelectOscillatorType = function (event) {
   const type = this.value
-  console.log(this.value)
   store.current_setting.oscillator_type = type
 }
 
@@ -87,10 +86,8 @@ const onSelectSetting = function (event) {
       // change oscillator_type dropdown to match selected setting
       $('#oscillator-type').find('option').each(function () {
         if (this.value !== store.current_setting.oscillator_type) {
-          console.log('!' + this)
           $(this).removeAttr('selected')
         } else if (this.value === store.current_setting.oscillator_type) {
-          console.log(this)
           $(this).attr('selected', 'selected')
         }
       })

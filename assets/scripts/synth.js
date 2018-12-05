@@ -81,6 +81,7 @@ const synthCall = function (event) {
   })
   // console.log(octavizer(synthKeys[key].pitch), synthKeys[key].pitch)
   if (event.type === 'keydown' && synthKeys[key]) {
+    console.log(synthKeys[key])
     synthKeys[key].oscillator.frequency.value = octavizer(synthKeys[key].pitch)
     synthKeys[key].synthOn()
   } else if (synthKeys[key]) {
