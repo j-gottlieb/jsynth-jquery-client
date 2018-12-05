@@ -75,34 +75,30 @@ const onGetSettings = function (event) {
 
 // User selects a setting
 const onSelectSetting = function (event) {
-  console.log('hello')
+  console.log($('#effects-select'))
   const settings = store.settings
   // Loop through all settings to find the selected one
-  for (let i = 0; i < settings.length; i++) {
-    if (settings[i].name === this.value) {
-      store.current_setting = settings[i]
-      // change sliders based on selected setting
-      $('#filter-cutoff').val(settings[i].filtercutoff)
-      $('#chorus-range').val(settings[i].chorusrate)
-      // change oscillator_type dropdown to match selected setting
-      $('#oscillator-type').find('option').each(function () {
-        if (this.value !== store.current_setting.oscillator_type) {
-          $(this).removeAttr('selected')
-        } else if (this.value === store.current_setting.oscillator_type) {
-          $(this).attr('selected', 'selected')
-        }
-      })
-      // populate update field with selected setting's name
-      $('#update-settings [name=name]').val(settings[i].name)
-    }
-  }
+  const setting = settings.find(element => element.name === this.value)
+  store.current_setting = setting
+  // change sliders based on selected setting
+  $('#filter-cutoff').val(setting.filtercutoff)
+  $('#chorus-range').val(setting.chorusrate)
+  // change oscillator_type dropdown to match selected setting
+  $('#oscillator-type').find('option').each(function () {
+    $(this).removeAttr('selected')
+  })
+  $('#oscillator-type').find(`option[value=${store.current_setting.oscillator_type}]`).attr('selected', 'selected')
+  // populate update field with selected setting's name
+  $('#update-settings [name=name]').val(setting.name)
 }
+
 // DELETE ajax request to api
 const onDeleteSetting = function (event) {
   const id = store.current_setting.id
   api.deleteSetting(id)
+    .then(api.getSettings)
     .then(ui.deleteSettingSuccess)
-    .then(() => onGetSettings())
+    .then(effectsSelect.populateSelect)
     .catch(ui.deleteSettingFailure)
 }
 

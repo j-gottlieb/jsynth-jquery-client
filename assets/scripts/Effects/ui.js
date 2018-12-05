@@ -2,6 +2,7 @@ const store = require('../store.js')
 
 const saveSettingSuccess = function (response) {
   const newSetting = response.synth_settings[response.synth_settings.length - 1]
+  store.settings = null
   store.settings = response.synth_settings
   store.current_setting = newSetting
   $('#update-settings [name=name]').val(newSetting.name)
@@ -49,8 +50,11 @@ const updateSettingSuccess = function (response) {
 }
 
 const deleteSettingSuccess = function (response) {
+  store.settings = null
+  store.settings = response.synth_settings
+  store.current_setting = store.settings[store.settings.length - 1]
   $('#update-settings').trigger('reset')
-  $('#settings-message').hide()
+  // $('#settings-message').hide()
   $('#settings-message').text('')
   $('#settings-message').css('color', 'red')
   $('#settings-message').text('Setting has been deleted').fadeToggle().delay(2000).fadeToggle()
