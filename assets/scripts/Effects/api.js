@@ -10,7 +10,8 @@ const saveSetting = function (settings) {
     },
     data: {
       'synth_setting': {
-        'name': settings.name,
+        'name': `${settings.name}`,
+        'oscillator_type': settings.oscillator_type,
         'chorusrate': settings.chorusrate,
         'chorustoggle': settings.chorustoggle,
         'filtercutoff': settings.filtercutoff,

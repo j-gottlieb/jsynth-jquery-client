@@ -4,7 +4,7 @@ const store = {
   current_setting: {
     id: null,
     name: 'test',
-    type: 'sine',
+    oscillator_type: 'sine',
     chorusrate: 4,
     chorustoggle: true,
     filtercutoff: 1000,
