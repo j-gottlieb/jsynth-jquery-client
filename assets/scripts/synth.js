@@ -6,18 +6,26 @@ const synthKeys = {}
 
 const octavizer = function (pitch) {
   let newPitch = pitch
-  switch (store.octave) {
-    case 1:
+  const oct = store.octave
+  switch (true) {
+    case (oct === 1):
       newPitch = pitch * 2
       break
-    case 2:
+    case (oct === 2):
       newPitch = pitch * 4
       break
-    case -1:
+    case (oct >= 3):
+      newPitch = pitch * 8
+      break
+    case (oct === -1):
       newPitch = pitch / 2
       break
-    case -2:
+    case (oct === -2):
       newPitch = pitch / 4
+      break
+    case (oct <= -3):
+      newPitch = pitch / 8
+      break
   }
   return newPitch
 }
