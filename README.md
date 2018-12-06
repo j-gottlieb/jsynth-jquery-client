@@ -17,19 +17,15 @@
 * Web Audio API
 * [tunajs](https://www.npmjs.com/package/tunajs)
 * Bootstrap
-* Ruby
-* Ruby on Rails
-* ajax
+* Handlebars
 
 ### Unsolved Issues:
-
-* Newly saved settings do not automatically update the oscillator-type dropdown when selected by the user.
 
 * I would like the user to be able to adjust settings in real time while playing the synth, rather than clicking out and back in. The reason for this feature was to prevent extraneous notes from playing while typing into forms on the page, but I think it would be better to change the event listeners to err on the side of allowing the playing to continue.
 
 ### Planning:
 
-Planning for JSynth began during thanksgiving week. I originally thought building a synth was a little beyond the scope of this project, but after having some success during practice runs in between the pie and booze, I decided to give it a whirl.
+Planning for JSynth began during thanksgiving week. I originally thought building a synth was a little beyond the scope of this project, but after having some success during my practice runs in between pie and booze, I decided to give it a whirl.
 
 From the beginning I had a clear idea of the layout of the page. It would put the piano keyboard front and center with effects settings being a very simple and intuitive interface.
 
@@ -55,7 +51,7 @@ A user can:
 7. Save effects settings
 8. Update effects settings
 9. Delete effects settings
-10. Recall Effects settings
+10. Recall effects settings
 
 ### Wireframe:
 ![Wireframe](./public/wireframe.JPG "Wireframe")
