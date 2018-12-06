@@ -93,7 +93,8 @@ const onSelectSetting = function (event) {
   $('#oscillator-type').find('option').each(function () {
     $(this).removeAttr('selected')
   })
-  $('#oscillator-type').find(`option[value=${store.current_setting.oscillator_type}]`).attr('selected', 'selected')
+  $('#oscillator-type').val(store.current_setting.oscillator_type)
+  // $('#oscillator-type').find(`option[value=${store.current_setting.oscillator_type}]`).attr('selected', 'selected')
   // populate update field with selected setting's name
   $('#update-settings [name=name]').val(setting.name)
 }

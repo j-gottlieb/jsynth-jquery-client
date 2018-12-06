@@ -52,7 +52,19 @@ const updateSettingSuccess = function (response) {
 const deleteSettingSuccess = function (response) {
   store.settings = null
   store.settings = response.synth_settings
-  store.current_setting = store.settings[store.settings.length - 1]
+  if (store.settings < 1) {
+    store.current_setting = {
+      id: null,
+      name: '',
+      oscillator_type: 'sine',
+      chorusrate: 4,
+      chorustoggle: true,
+      filtercutoff: 1000,
+      filtertoggle: true
+    }
+  } else {
+    store.current_setting = store.settings[store.settings.length - 1]
+  }
   $('#update-settings').trigger('reset')
   // $('#settings-message').hide()
   $('#settings-message').text('')
