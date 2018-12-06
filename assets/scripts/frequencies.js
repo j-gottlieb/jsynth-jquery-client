@@ -1,3 +1,4 @@
+// Info regarding each note in the synth
 const frequencies = [
   {
     note: 'C3',

@@ -28,9 +28,13 @@ const onSaveSetting = function (event) {
   event.preventDefault()
   const settings = store.current_setting
   api.saveSetting(settings)
+    // retrieve all settings
     .then(api.getSettings)
+    // update ui
     .then(ui.saveSettingSuccess)
+    // populate settings dropdown with updated list
     .then(effectsSelect.populateSelect)
+    // select the newly created setting
     .then(() => saveSettingPopulateSelect(currentName))
     .catch(ui.saveSettingFailure)
 }
