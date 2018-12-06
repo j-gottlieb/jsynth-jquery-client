@@ -1,17 +1,6 @@
 
-{{#each practices as |practice|}}
+{{#each settings as |setting|}}
 
-  <section class='practice_sections' data-id="{{practice.id}}">
-    <h1 data-id="{{practice.id}}"> <small>{{practice.date}}</small></h1>
-      {{practice.duration}} minutes | ID: {{practice.id}} | type: {{practice.practice_type}}
-      <br>
-      <button type='submit' class="remove_button col btn btn-default">Delete this practice</button>
-      <p>Edit this practice below:</p>
-      <form class="single-form edit_form">
-        <input type='date' name="date" placeholder="Enter Date" />
-        <input type='number' name="duration" min="0" max='1440' placeholder="Enter Duration" />
-        <input type='string' name="practice_type" min="0" placeholder="Enter Practice Type" />
-        <input type="submit" />
-      </form>
-  </section>
+  <option value="{{setting.name}}">{{setting.name}}</option>
+
 {{/each}}
