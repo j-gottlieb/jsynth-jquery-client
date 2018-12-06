@@ -66,7 +66,7 @@ const deleteSettingSuccess = function (response) {
     store.current_setting = store.settings[store.settings.length - 1]
   }
   $('#update-settings').trigger('reset')
-  // $('#settings-message').hide()
+  $('#settings-message').hide()
   $('#settings-message').text('')
   $('#settings-message').css('color', 'red')
   $('#settings-message').text('Setting has been deleted').fadeToggle().delay(2000).fadeToggle()
