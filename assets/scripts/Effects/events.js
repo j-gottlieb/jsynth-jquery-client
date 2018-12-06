@@ -94,7 +94,6 @@ const onSelectSetting = function (event) {
     $(this).removeAttr('selected')
   })
   $('#oscillator-type').val(store.current_setting.oscillator_type)
-  // $('#oscillator-type').find(`option[value=${store.current_setting.oscillator_type}]`).attr('selected', 'selected')
   // populate update field with selected setting's name
   $('#update-settings [name=name]').val(setting.name)
 }
@@ -106,7 +105,12 @@ const onDeleteSetting = function (event) {
     .then(api.getSettings)
     .then(ui.deleteSettingSuccess)
     .then(effectsSelect.populateSelect)
+    .then(() => deleteSettingSelect())
     .catch(ui.deleteSettingFailure)
+}
+
+const deleteSettingSelect = function () {
+  $('#effects-select').val(store.current_setting.name)
 }
 
 module.exports = {

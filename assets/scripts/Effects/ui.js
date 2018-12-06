@@ -65,7 +65,7 @@ const deleteSettingSuccess = function (response) {
   } else {
     store.current_setting = store.settings[store.settings.length - 1]
   }
-  $('#update-settings').trigger('reset')
+  $('#update-settings [name=name]').val(store.current_setting.name)
   $('#settings-message').hide()
   $('#settings-message').text('')
   $('#settings-message').css('color', 'red')
