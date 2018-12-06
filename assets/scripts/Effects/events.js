@@ -108,7 +108,7 @@ const onDeleteSetting = function (event) {
     .then(() => deleteSettingSelect())
     .catch(ui.deleteSettingFailure)
 }
-
+// populate the update-setting field with the current_setting's name.
 const deleteSettingSelect = function () {
   $('#effects-select').val(store.current_setting.name)
 }
