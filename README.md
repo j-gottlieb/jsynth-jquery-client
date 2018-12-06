@@ -1,7 +1,6 @@
 # Welcome to JSynth!
 
-##### JSynth is a synthesizer web browser application that allows
-##### you play piano using your computer keyboard. Simply log in,  ##### click on the piano and start playing! Also, check out the different effects settings. When you like what you have, save the setting to use later.
+##### JSynth is a synthesizer web browser application that allows you play piano using your computer keyboard. Simply log in, click on the piano and start playing! Also, check out the different effects settings. When you like what you have, save the setting to use later.
 
 ![JSynth Screenshot](./public/jsynth-screenshot.png "JSynth Screenshot")
 
