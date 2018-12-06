@@ -65,6 +65,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   store.user = null
+  store.octave = 0
   $('#display-message, #settings-message').hide()
   $('form').trigger('reset')
   $('#display-message, #settings-message').text('')
@@ -72,6 +73,7 @@ const signOutSuccess = function () {
   $('#display-message').text('You have signed out.').fadeToggle().delay(2000).fadeToggle()
   $('.signed-in').hide()
   $('.signed-out').show()
+  $('.synth-container').off()
 }
 
 module.exports = {
