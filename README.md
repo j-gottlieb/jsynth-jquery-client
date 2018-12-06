@@ -6,10 +6,10 @@
 ![JSynth Screenshot](./public/jsynth-screenshot.png "JSynth Screenshot")
 
 ### Links:
-[API repo](https://github.com/j-gottlieb/jsynth-api)
-[Client repo](https://github.com/j-gottlieb/jsynth-jquery-client)
-[Deployed API](https://jsynth-api.herokuapp.com/)
-[Deployed Client](https://j-gottlieb.github.io/jsynth-jquery-client/)
+* [API repo](https://github.com/j-gottlieb/jsynth-api)
+* [Client repo](https://github.com/j-gottlieb/jsynth-jquery-client)
+* [Deployed API](https://jsynth-api.herokuapp.com/)
+* [Deployed Client](https://j-gottlieb.github.io/jsynth-jquery-client/)
 
 ### Technologies:
 
