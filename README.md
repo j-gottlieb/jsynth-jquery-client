@@ -1,113 +1,62 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Welcome to JSynth!
 
-# browser-template
+##### JSynth is a synthesizer web browser application that allows
+##### you play piano using your computer keyboard. Simply log in,  ##### click on the piano and start playing! Also, check out the different effects settings. When you like what you have, save the setting to use later.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+![JSynth Screenshot](./public/jsynth-screenshot.png "JSynth Screenshot")
 
-## Installation
+### Links:
+[API repo](https://github.com/j-gottlieb/jsynth-api)
+[Client repo](https://github.com/j-gottlieb/jsynth-jquery-client)
+[Deployed API](https://jsynth-api.herokuapp.com/)
+[Deployed Client](https://j-gottlieb.github.io/jsynth-jquery-client/)
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+### Technologies:
 
-## Structure
+* Javascript
+* JQuery
+* Web Audio API
+* [tunajs](https://www.npmjs.com/package/tunajs)
+* Bootstrap
+* Ruby
+* Ruby on Rails
+* ajax
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+### Unsolved Issues:
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+* Newly saved settings do not automatically update the oscillator-type dropdown when selected by the user.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+* I would like the user to be able to adjust settings in real time while playing the synth, rather than clicking out and back in. The reason for this feature was to prevent extraneous notes from playing while typing into forms on the page, but I think it would be better to change the event listeners to err on the side of allowing the playing to continue.
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+### Planning:
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Planning for JSynth began during thanksgiving week. I originally thought building a synth was a little beyond the scope of this project, but after having some success during practice runs in between the pie and booze, I decided to give it a whirl.
 
-## Adding Images
+From the beginning I had a clear idea of the layout of the page. It would put the piano keyboard front and center with effects settings being a very simple and intuitive interface.
 
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
+Using the react-auth template I built a synth component that succesfully rendered a playable synth, but it kept causing memory leaks that crashed the browser tab. At the time I believed this was a react issue and not, as I later learned, a web audio api bug. Based on advice from my instructor, I moved away from React, back to a standard jquery browser template. Ironically, I encountered the same bug in the new template and eventually solved it using info from a stack-overflow post.
 
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
+With a functioning synth, it was a matter of designing the ui so that it wouldn't overwhelm the user with information. I wanted it to be easy to use out of the box, so there are very few instructions on the screen.
 
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
+### Set-up and Installation:
 
-## Adding Fonts
+1. Download and unzip browser template
+2. Initialize and create remote git repo
+3. npm install
+4. npm install tunajs
 
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
+### User Stories:
+A user can:
+1. Create an account
+2. Log in
+3. Change password
+4. Log out
+5. Play a synthesizer
+6. Adjust effects settings including, chorus, filter and waveform type
+7. Save effects settings
+8. Update effects settings
+9. Delete effects settings
+10. Recall Effects settings
 
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+### Wireframe:
+![Wireframe](./public/wireframe.JPG "Wireframe")
