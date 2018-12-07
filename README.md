@@ -25,7 +25,7 @@
 
 * If a user logs out and back in there is an error in the console that doesn't seem to effect anything in the user experience. I suspect it has to do with disconnecting tunajs from the audio context.
 
-* This error is thrown when a user logs out and another or the same user logs back in: `Uncaught DOMException: Failed to execute 'connect' on 'AudioNode': cannot connect to a destination belonging to a different audio context` It seems to be a known bug documented [here](https://github.com/WebAudio/web-audio-api/issues/1580). I believe there may be a way to close and destroy the audio context on logout so that a new log in doesn't throw the error.
+* This error is thrown when a user logs out and another or the same user logs back in: `Uncaught DOMException: Failed to execute 'connect' on 'AudioNode': cannot connect to a destination belonging to a different audio context` It seems to be a known bug documented [here](https://github.com/WebAudio/web-audio-api/issues/1580). I believe there may be a way to close and destroy the audio context on logout so that a new login doesn't throw the error.
 
 ### Planning:
 
