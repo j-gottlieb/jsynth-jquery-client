@@ -110,9 +110,9 @@ class Synth {
 const synthCall = function (event) {
   const key = event.key
   // reassign octave state when user hits octave keys
-  if (event.type === 'keydown' && event.key === ',') {
+  if (event.type === 'keydown' && event.key === ',' && store.octave > -3) {
     store.octave -= 1
-  } else if (event.type === 'keydown' && event.key === '.') {
+  } else if (event.type === 'keydown' && event.key === '.' && store.octave < 3) {
     store.octave += 1
   }
   // create new Synth instance based on which key was hit
