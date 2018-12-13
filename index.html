@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>JSynth</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar row bg-dark main-nav">
+        <div class="nav-content">
+          <h1 class="text-white">JSynth</h1>
+        </div>
+
+        <div id='display-message'></div>
+
+        <div class="nav-content">
+
+        <div class="signed-in hidden">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+            Change Password
+          </button>
+          <button id='sign-out-button' type="button" class="btn btn-primary">
+            Sign Out
+          </button>
+        </div>
+
+        <div class="signed-out text-white">
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+            Sign Up
+          </button>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+            Sign In
+          </button>
+          </div>
+
+        </div>
+
+    </nav>
+    <div class="container">
+
+      <div class="welcome signed-out">
+        <h1>Welcome to JSynth</h1>
+        <h3>Sign in to jam</h3>
+      </div>
+
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>This site is not secure. Sign in with these dummy credentials:</p>
+            <p>Username: a@a Password: a</p>
+            <form id="sign-up-form">
+              <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
+               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+               <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+               <input type="submit"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>This site is not secure. Sign in with these dummy credentials:</p>
+            <p>Username: a@a Password: a</p>
+            <form id="sign-in-form">
+               <input required type="email" name="credentials[email]" placeholder="Enter Email" />
+               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+               <input type="submit" />
+             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id='change-password-form'>
+              <input required type="password" name="passwords[old]" placeholder="Enter Old Password" />
+              <input required type="password" name="passwords[new]" placeholder="Enter New Password" />
+              <input  type="submit" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="synth-container signed-in hidden" tabindex="0">
+      <h3>Click me to start playing</h3>
+
+      <div id="a" class="natural">
+        <p>a</p>
+      </div>
+        <div id="w" class="sharp">
+          <p>w</p>
+        </div>
+      <div id="s" class="natural">
+        <p>s</p>
+      </div>
+        <div id="e" class="sharp">
+          <p>e</p>
+        </div>
+      <div id="d" class="natural">
+        <p>d</p>
+      </div>
+      <div id="f" class="natural">
+        <p>f</p>
+      </div>
+        <div id="t" class="sharp">
+          <p>t</p>
+        </div>
+      <div id="g" class="natural">
+        <p>g</p>
+      </div>
+        <div id="y" class="sharp">
+          <p>y</p>
+        </div>
+      <div id="h" class="natural">
+        <p>h</p>
+      </div>
+        <div id="u" class="sharp">
+          <p>u</p>
+        </div>
+      <div id="j" class="natural">
+        <p>j</p>
+      </div>
+      <div id="k" class="natural">
+        <p>k</p>
+      </div>
+
+    </div>
+    <div class="octavizer signed-in hidden">
+      <div class="octave-keys">
+        <p class="octave-display">Hit</p>
+        <img class="keyboard-key" src="./public/images/octave-down.png" alt="octave-down">
+        <p class="octave-display">to lower one octave</p>
+      </div>
+      <div class="octave-keys signed-in hidden">
+        <p class="octave-display">Hit
+        <img class="keyboard-key" src="./public/images/octave-up.png" alt="octave-up">
+        <p class="octave-display">to raise one octave</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-around">
+
+      <div class="">
+        <div class="sliders signed-in hidden">
+          <form class="range-field my-4 w-25">
+            <label for='chorus-range'>Chorus Rate:</label>
+            <input id='chorus-range' class="slider" type="range" min="0" max="8" step=".1" value='4' />
+          </form>
+
+          <form class="range-field my-4 w-25">
+            <label for='filter-cutoff'>Filter Cut-Off:</label>
+            <input id='filter-cutoff' class="slider" type="range" min="200" max="15000" step="1" value='1000' />
+          </form>
+
+          <label for="oscillator-type">Oscillator Type:</label>
+          <select id="oscillator-type">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="settings signed-in hidden">
+          <h5>Choose a Setting</h5>
+          <select class="effects-select" id='effects-select'></select>
+
+          <h5>Update current setting</h5>
+          <form id='update-settings'>
+            <input type="text" name="name" placeholder="Setting Name" />
+            <input type="submit" />
+          </form>
+
+          <h5>Save new setting</h5>
+          <form id='save-settings'>
+            <input type="text" name="name" placeholder="Setting Name" />
+            <input type="submit">
+          </form>
+        <button id="delete" class="btn delete-button btn-warning">Delete Current Setting</button>
+      </div>
+    </div>
+    </div>
+
+    <div class="settings-message">
+      <p id=settings-message></p>
+    </div>
+
+
+    </div>
+    </body>
+</html>
